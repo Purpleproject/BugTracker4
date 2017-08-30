@@ -7,6 +7,7 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -34,7 +35,7 @@ public class Test implements Serializable{
 	//Associations
 	//association one to many
 	@OneToMany(mappedBy="test", cascade=CascadeType.ALL)
-	private List<Candidature> lTesteurs;
+	private List<Candidature> lCandidatures;
 	
 	//association one to many
 	@OneToMany(mappedBy="test", cascade=CascadeType.ALL)
@@ -54,9 +55,7 @@ public class Test implements Serializable{
 	 * @param dateFin
 	 * @param remuneration
 	 * @param nbTesteurAttendu
-	 * @param lTesteurs
 	 * @param statut
-	 * @param lBugs
 	 */
 	
 	public Test(String nomTest, String description, Date datePublication, Date dateFin, String remuneration,
@@ -81,9 +80,7 @@ public class Test implements Serializable{
 	 * @param dateFin
 	 * @param remuneration
 	 * @param nbTesteurAttendu
-	 * @param lTesteurs
 	 * @param statut
-	 * @param lBugs
 	 */
 	public Test(int id, String nomTest, String description, Date datePublication, Date dateFin, String remuneration,
 			int nbTesteurAttendu, boolean statut) {
@@ -154,12 +151,21 @@ public class Test implements Serializable{
 	public void setNbTesteurAttendu(int nbTesteurAttendu) {
 		this.nbTesteurAttendu = nbTesteurAttendu;
 	}
-	public List<Candidature> getlTesteurs() {
-		return lTesteurs;
+
+	/**
+	 * @return the lCandidatures
+	 */
+	public List<Candidature> getlCandidatures() {
+		return lCandidatures;
 	}
-	public void setlTesteurs(List<Candidature> lTesteurs) {
-		this.lTesteurs = lTesteurs;
+
+	/**
+	 * @param lCandidatures the lCandidatures to set
+	 */
+	public void setlCandidatures(List<Candidature> lCandidatures) {
+		this.lCandidatures = lCandidatures;
 	}
+
 	public boolean isStatut() {
 		return statut;
 	}

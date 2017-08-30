@@ -49,7 +49,6 @@ public class TestServiceImpl implements ITestService{
 
 	@Override
 	public List<Test> rechercheTout() {
-		// TODO Auto-generated method stub
 		return testDao.rechercheTout();
 	}
 
