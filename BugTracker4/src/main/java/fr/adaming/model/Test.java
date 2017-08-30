@@ -7,6 +7,7 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -33,11 +34,11 @@ public class Test implements Serializable{
 	
 	//Associations
 	//association one to many
-	@OneToMany(mappedBy="test", cascade=CascadeType.ALL)
+	@OneToMany(fetch = FetchType.LAZY, mappedBy="testeur", cascade=CascadeType.ALL)
 	private List<Candidature> lTesteurs;
 	
 	//association one to many
-	@OneToMany(mappedBy="test", cascade=CascadeType.ALL)
+	@OneToMany(fetch = FetchType.LAZY, mappedBy="test", cascade=CascadeType.ALL)
 	private List<FicheBug> lBugs;
 	
 	
