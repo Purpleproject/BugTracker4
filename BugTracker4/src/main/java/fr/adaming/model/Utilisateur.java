@@ -3,6 +3,7 @@ package fr.adaming.model;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
@@ -22,6 +23,7 @@ public class Utilisateur {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="id_utilisateur")
 	protected int id;
 
 	protected String nomUtilisateur;
