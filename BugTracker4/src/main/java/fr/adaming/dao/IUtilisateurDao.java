@@ -4,6 +4,6 @@ import fr.adaming.model.Utilisateur;
 
 public interface IUtilisateurDao {
 
-	public Utilisateur rechercherParMail(String mail);
+	//public Utilisateur rechercherParMail(String mail);
 	
 }

@@ -2,6 +2,8 @@ package fr.adaming.restcontrollers;
 
 import java.util.List;
 
+import javax.ws.rs.core.Response;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -58,14 +60,21 @@ public class UtilisateurController {
 		return utiSer.rechercheTout();
 	}
 
-	@RequestMapping(value = "/authentification", method = RequestMethod.GET, produces = "application/json")
-	public boolean authentification(@RequestParam("pMail") String mail, @RequestParam("pMdp") String mdp) {
-		Utilisateur user = utiSer.rechercheParMail(mail);
-		if (user != null & user.getMpd() == mdp) {
-			return true;
-		} else {
-			return false;
-		}
+	@RequestMapping(value = "/listeTesteurs", method = RequestMethod.GET, produces = "application/json")
+	public Response rechercherToutTesteurs() {
+		return Response.ok()
+				.entity(tesSer.rechercheTout()).header("Access-Control-Allow-Origin", "*")
+				.header("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT").build();	
 	}
+
+//	@RequestMapping(value = "/authentification", method = RequestMethod.GET, produces = "application/json")
+//	public boolean authentification(@RequestParam("pMail") String mail, @RequestParam("pMdp") String mdp) {
+//		Utilisateur user = utiSer.rechercheParMail(mail);
+//		if (user != null & user.getMpd() == mdp) {
+//			return true;
+//		} else {
+//			return false;
+//		}
+//	}
 
 }

@@ -16,6 +16,6 @@ public interface IUtilisateurService {
 
 	public List<Utilisateur> rechercheTout();
 
-	public Utilisateur rechercheParMail(String mail);
+	//public Utilisateur rechercheParMail(String mail);
 	
 }

@@ -52,8 +52,8 @@ public class UtilisateurServiceImpl implements IUtilisateurService {
 		return uDao.rechercheTout();
 	}
 
-	public Utilisateur rechercheParMail(String mail){
-		return utiDao.rechercherParMail(mail);
-	}
+//	public Utilisateur rechercheParMail(String mail){
+//		return utiDao.rechercherParMail(mail);
+//	}
 	
 }

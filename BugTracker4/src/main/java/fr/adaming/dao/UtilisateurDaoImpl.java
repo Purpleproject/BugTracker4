@@ -59,16 +59,16 @@ public class UtilisateurDaoImpl implements IGeneriqueDao<Utilisateur>,IUtilisate
 		return query.list();
 	}
 
-	@Override
-	public Utilisateur rechercherParMail(String mail) {
-		Session s = sf.getCurrentSession();
-
-		String req = "FROM Utilisateur WHERE mail = :?";
-
-		Query query = (Query) s.createQuery(req);
-		query.setParameter(1, mail);
-		return (Editeur) query.uniqueResult();
-	}
+//	@Override
+//	public Utilisateur rechercherParMail(String mail) {
+//		Session s = sf.getCurrentSession();
+//
+//		String req = "FROM Utilisateur WHERE mail = :?";
+//
+//		Query query = (Query) s.createQuery(req);
+//		query.setParameter(1, mail);
+//		return (Editeur) query.uniqueResult();
+//	}
 
 	
 }
