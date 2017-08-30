@@ -44,13 +44,13 @@ public class UtilisateurController {
 		this.editeurSer = ediSer;
 	}
 
-	@RequestMapping(value = "/creerTesteur", method = RequestMethod.POST)
+	@RequestMapping(value = "/creerTesteur", method = RequestMethod.POST, consumes = "application/json")
 	public void creer(@RequestBody Testeur user) {
 		testeurSer.creer(user);
 		System.out.println("ok");
 	}
 
-	@RequestMapping(value = "/creerEditeur", method = RequestMethod.POST)
+	@RequestMapping(value = "/creerEditeur", method = RequestMethod.POST, consumes = "application/json")
 	public void creer(@RequestBody Editeur user) {
 		editeurSer.creer(user);
 		System.out.println("ok");

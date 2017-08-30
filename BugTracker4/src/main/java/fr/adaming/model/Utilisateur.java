@@ -26,7 +26,7 @@ public class Utilisateur {
 
 	protected String nomUtilisateur;
 	protected String mail;
-	protected String mpd;
+	protected String mdp;
 	protected Date date;
 
 	public Utilisateur() {
@@ -34,21 +34,21 @@ public class Utilisateur {
 	}
 
 	
-	public Utilisateur(String nomUtilisateur, String mail, String mpd, Date date) {
+	public Utilisateur(String nomUtilisateur, String mail, String mdp, Date date) {
 		super();
 		this.nomUtilisateur = nomUtilisateur;
 		this.mail = mail;
-		this.mpd = mpd;
+		this.mdp = mdp;
 		this.date = date;
 	}
 
 
-	public Utilisateur(int id, String nomUtilisateur, String mail, String mpd, Date date) {
+	public Utilisateur(int id, String nomUtilisateur, String mail, String mdp, Date date) {
 		super();
 		this.id = id;
 		this.nomUtilisateur = nomUtilisateur;
 		this.mail = mail;
-		this.mpd = mpd;
+		this.mdp = mdp;
 		this.date = date;
 	}
 
@@ -77,12 +77,12 @@ public class Utilisateur {
 		this.mail = mail;
 	}
 
-	public String getMpd() {
-		return mpd;
+	public String getMdp() {
+		return mdp;
 	}
 
-	public void setMpd(String mpd) {
-		this.mpd = mpd;
+	public void setMdp(String mdp) {
+		this.mdp = mdp;
 	}
 	
 	
@@ -101,7 +101,7 @@ public class Utilisateur {
 	public String toString() {
 		return "Utilisateur [id=" + id + ", "
 				+ (nomUtilisateur != null ? "nomUtilisateur=" + nomUtilisateur + ", " : "")
-				+ (mail != null ? "mail=" + mail + ", " : "") + (mpd != null ? "mpd=" + mpd + ", " : "")
+				+ (mail != null ? "mail=" + mail + ", " : "") + (mdp != null ? "mdp=" + mdp + ", " : "")
 				+ (date != null ? "date=" + date : "") + "]";
 	}
 
