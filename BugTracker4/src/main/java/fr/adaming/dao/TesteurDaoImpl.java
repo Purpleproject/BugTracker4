@@ -1,5 +1,6 @@
 package fr.adaming.dao;
 
+import java.sql.ResultSet;
 import java.util.List;
 
 import org.hibernate.Query;
@@ -51,10 +52,10 @@ public class TesteurDaoImpl implements IGeneriqueDao<Testeur> {
 	public List<Testeur> rechercheTout() {
 		 Session s = sf.getCurrentSession();
 		
-		 String req = "FROM Utilisateur u INNER JOIN FETCH u.class = Testeur ";
+		 String req = "FROM Testeur";
 		
 		 Query query = (Query) s.createQuery(req);
-		
+	
 		 return query.list();
 		 }
 	
