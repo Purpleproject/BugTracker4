@@ -31,7 +31,9 @@ public class CandidatureDaoImpl implements IGeneriqueDao<Candidature> {
 	// éditeur
 	// de refuser un testeur (possibilité d'utiliser un meessage d'explication)
 	public void supprimer(int id) {
-
+		Session s = sf.getCurrentSession();
+		Candidature u = (Candidature) s.get(Candidature.class, id);
+		s.delete(u);
 	}
 
 	@Override
