@@ -13,7 +13,6 @@ import fr.adaming.model.Candidature;
 @Transactional
 public class CandidatureServiceImpl implements ICandidatureService{
 
-	
 	@Autowired
 	private IGeneriqueDao<Candidature> eDao;
 	

@@ -6,7 +6,6 @@ import fr.adaming.model.Candidature;
 
 public interface ICandidatureService {
 	
-
 	public void creer(Candidature c);
 
 	public void supprimer(int id);
