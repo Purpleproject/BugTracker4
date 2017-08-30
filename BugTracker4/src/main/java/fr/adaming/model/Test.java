@@ -34,7 +34,7 @@ public class Test implements Serializable{
 	
 	//Associations
 	//association one to many
-	@OneToMany(fetch = FetchType.LAZY, mappedBy="testeur", cascade=CascadeType.ALL)
+	@OneToMany(fetch = FetchType.LAZY, mappedBy="test", cascade=CascadeType.ALL)
 	private List<Candidature> lTesteurs;
 	
 	//association one to many
