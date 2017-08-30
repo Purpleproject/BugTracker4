@@ -41,8 +41,7 @@ public class Test implements Serializable{
 	@OneToMany(mappedBy="test", cascade=CascadeType.ALL)
 	private List<FicheBug> lBugs;
 	
-	
-	
+		
 	
 	/*******************************************
 	*				Constructeurs
