@@ -49,17 +49,13 @@ public class FicheBug  implements Serializable{
 	/**
 	 * Constructeur avec id
 	 * @param id
-	 * @param testeur
-	 * @param test
 	 * @param libelle
 	 * @param description
 	 * @param statut
 	 */
-	public FicheBug(int id, Testeur testeur, Test test, String libelle, String description, String statut) {
+	public FicheBug(int id, String libelle, String description, String statut) {
 		super();
 		this.id = id;
-		this.testeur = testeur;
-		this.test = test;
 		this.libelle = libelle;
 		this.description = description;
 		this.statut = statut;
@@ -67,24 +63,20 @@ public class FicheBug  implements Serializable{
 
 	/**
 	 * Constructeur sans id
-	 * @param testeur
-	 * @param test
 	 * @param libelle
 	 * @param description
 	 * @param statut
 	 */
-	public FicheBug(Testeur testeur, Test test, String libelle, String description, String statut) {
+	public FicheBug(String libelle, String description, String statut) {
 		super();
-		this.testeur = testeur;
-		this.test = test;
 		this.libelle = libelle;
 		this.description = description;
 		this.statut = statut;
 	}  
 	
 	/*************************************
-	 * 		Asseseurs et mutateurs 
-	 * @return
+	 * 		Assesseurs et mutateurs 
+	 * 
 	 ************************************/
 	public int getId() {
 		return id;
@@ -139,7 +131,7 @@ public class FicheBug  implements Serializable{
 	 **************************/
 	@Override
 	public String toString() {
-		return "FicheBug [id=" + id + ", test=" + test + ", libelle=" + libelle + ", description=" + description
+		return "FicheBug [id=" + id + ",  libelle=" + libelle + ", description=" + description
 				+ ", statut=" + statut + "]";
 	}
 	

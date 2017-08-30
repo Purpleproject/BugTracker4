@@ -34,11 +34,11 @@ public class Test implements Serializable{
 	
 	//Associations
 	//association one to many
-	@OneToMany(fetch = FetchType.LAZY, mappedBy="test", cascade=CascadeType.ALL)
+	@OneToMany(mappedBy="test", cascade=CascadeType.ALL)
 	private List<Candidature> lCandidatures;
 	
 	//association one to many
-	@OneToMany(fetch = FetchType.LAZY, mappedBy="test", cascade=CascadeType.ALL)
+	@OneToMany(mappedBy="test", cascade=CascadeType.ALL)
 	private List<FicheBug> lBugs;
 	
 	
@@ -55,9 +55,7 @@ public class Test implements Serializable{
 	 * @param dateFin
 	 * @param remuneration
 	 * @param nbTesteurAttendu
-	 * @param lTesteurs
 	 * @param statut
-	 * @param lBugs
 	 */
 	
 	public Test(String nomTest, String description, Date datePublication, Date dateFin, String remuneration,
@@ -82,9 +80,7 @@ public class Test implements Serializable{
 	 * @param dateFin
 	 * @param remuneration
 	 * @param nbTesteurAttendu
-	 * @param lTesteurs
 	 * @param statut
-	 * @param lBugs
 	 */
 	public Test(int id, String nomTest, String description, Date datePublication, Date dateFin, String remuneration,
 			int nbTesteurAttendu, boolean statut) {

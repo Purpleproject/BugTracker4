@@ -57,12 +57,10 @@ public class Candidature implements Serializable{
 	 * @param commentaireNote
 	 * @param statut
 	 */
-	public Candidature(int id, Testeur testeur, Test test, int note, String lettreMotivation, String commentaireNote,
+	public Candidature(int id, int note, String lettreMotivation, String commentaireNote,
 			boolean statut) {
 		super();
 		this.id = id;
-		this.testeur = testeur;
-		this.test = test;
 		this.note = note;
 		this.lettreMotivation = lettreMotivation;
 		this.commentaireNote = commentaireNote;
@@ -78,11 +76,9 @@ public class Candidature implements Serializable{
 	 * @param commentaireNote
 	 * @param statut
 	 */
-	public Candidature(Testeur testeur, Test test, int note, String lettreMotivation, String commentaireNote,
+	public Candidature(int note, String lettreMotivation, String commentaireNote,
 			boolean statut) {
 		super();
-		this.testeur = testeur;
-		this.test = test;
 		this.note = note;
 		this.lettreMotivation = lettreMotivation;
 		this.commentaireNote = commentaireNote;
@@ -155,7 +151,7 @@ public class Candidature implements Serializable{
 	 *******************/
 	@Override
 	public String toString() {
-		return "Candidature [id=" + id + ", testeur=" + testeur + ", test=" + test + ", note=" + note
+		return "Candidature [id=" + id + ", note=" + note
 				+ ", lettreMotivation=" + lettreMotivation + ", commentaireNote=" + commentaireNote + ", statut="
 				+ statut + "]";
 	}
