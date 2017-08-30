@@ -5,6 +5,7 @@ import java.util.List;
 import javax.ws.rs.core.Response;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -60,11 +61,10 @@ public class UtilisateurController {
 		return utilisateurSer.rechercheTout();
 	}
 
+	@CrossOrigin
 	@RequestMapping(value = "/listeTesteurs", method = RequestMethod.GET, produces = "application/json")
-	public Response rechercherToutTesteurs() {
-		return Response.ok()
-				.entity(testeurSer.rechercheTout()).header("Access-Control-Allow-Origin", "*")
-				.header("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT").build();	
+	public List<Testeur> rechercherToutTesteurs() {
+		return testeurSer.rechercheTout();
 	}
 
 //	@RequestMapping(value = "/authentification", method = RequestMethod.GET, produces = "application/json")
