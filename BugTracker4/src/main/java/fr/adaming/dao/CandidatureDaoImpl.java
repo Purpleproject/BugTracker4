@@ -18,7 +18,6 @@ public class CandidatureDaoImpl implements IGeneriqueDao<Candidature> {
 	public void setSf(SessionFactory sf) {
 		this.sf = sf;
 	}
-	
 
 	@Override
 	// méthode qui va permettre à un testeur de postuler pour un test
