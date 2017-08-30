@@ -20,7 +20,7 @@ public class TesteurDaoImpl implements IGeneriqueDao<Testeur> {
 	public void setSf(SessionFactory sf) {
 		this.sf = sf;
 	}
-	
+
 	@Override
 	public void creer(Testeur t) {
 		Session s = sf.getCurrentSession();
@@ -30,7 +30,7 @@ public class TesteurDaoImpl implements IGeneriqueDao<Testeur> {
 	@Override
 	public void supprimer(int id) {
 		Session s = sf.getCurrentSession();
-		Utilisateur u =  (Utilisateur) s.get(Utilisateur.class, id);
+		Utilisateur u = (Utilisateur) s.get(Utilisateur.class, id);
 		s.delete(u);
 	}
 
@@ -49,14 +49,13 @@ public class TesteurDaoImpl implements IGeneriqueDao<Testeur> {
 
 	@Override
 	public List<Testeur> rechercheTout() {
-		Session s = sf.getCurrentSession();
-
-		String req = "FROM Utilisateur WHERE roles='testeur'";
-
-		Query query = (Query) s.createQuery(req);
-
-		return query.list();
-	}
-
-
+		 Session s = sf.getCurrentSession();
+		
+		 String req = "FROM Utilisateur u INNER JOIN FETCH u.class = Testeur ";
+		
+		 Query query = (Query) s.createQuery(req);
+		
+		 return query.list();
+		 }
+	
 }

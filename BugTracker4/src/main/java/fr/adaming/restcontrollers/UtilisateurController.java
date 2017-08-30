@@ -23,53 +23,53 @@ import fr.adaming.service.IUtilisateurService;
 public class UtilisateurController {
 
 	@Autowired
-	IUtilisateurService utiSer;
+	IUtilisateurService utilisateurSer;
 
 	@Autowired
-	ITesteurService tesSer;
+	ITesteurService testeurSer;
 
 	@Autowired
-	IEditeurService ediSer;
+	IEditeurService editeurSer;
 
 	public void setUtiSer(IUtilisateurService utiSer) {
-		this.utiSer = utiSer;
+		this.utilisateurSer = utiSer;
 	}
 
 	public void setTesSer(ITesteurService tesSer) {
-		this.tesSer = tesSer;
+		this.testeurSer = tesSer;
 	}
 
 	public void setEdiSer(IEditeurService ediSer) {
-		this.ediSer = ediSer;
+		this.editeurSer = ediSer;
 	}
 
 	@RequestMapping(value = "/creerTesteur", method = RequestMethod.POST)
 	public void creer(@RequestBody Testeur user) {
-		tesSer.creer(user);
+		testeurSer.creer(user);
 		System.out.println("ok");
 	}
 
 	@RequestMapping(value = "/creerEditeur", method = RequestMethod.POST)
 	public void creer(@RequestBody Editeur user) {
-		ediSer.creer(user);
+		editeurSer.creer(user);
 		System.out.println("ok");
 	}
 
 	@RequestMapping(value = "/rechercherTout", method = RequestMethod.GET, produces = "application/json")
 	public List<Utilisateur> rechercherTout() {
-		return utiSer.rechercheTout();
+		return utilisateurSer.rechercheTout();
 	}
 
 	@RequestMapping(value = "/listeTesteurs", method = RequestMethod.GET, produces = "application/json")
 	public Response rechercherToutTesteurs() {
 		return Response.ok()
-				.entity(tesSer.rechercheTout()).header("Access-Control-Allow-Origin", "*")
+				.entity(testeurSer.rechercheTout()).header("Access-Control-Allow-Origin", "*")
 				.header("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT").build();	
 	}
 
 //	@RequestMapping(value = "/authentification", method = RequestMethod.GET, produces = "application/json")
 //	public boolean authentification(@RequestParam("pMail") String mail, @RequestParam("pMdp") String mdp) {
-//		Utilisateur user = utiSer.rechercheParMail(mail);
+//		Utilisateur user = utilisateurSer.rechercheParMail(mail);
 //		if (user != null & user.getMpd() == mdp) {
 //			return true;
 //		} else {
