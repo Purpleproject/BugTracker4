@@ -35,7 +35,7 @@ public class Test implements Serializable{
 	//Associations
 	//association one to many
 	@OneToMany(fetch = FetchType.LAZY, mappedBy="test", cascade=CascadeType.ALL)
-	private List<Candidature> lTesteurs;
+	private List<Candidature> lCandidatures;
 	
 	//association one to many
 	@OneToMany(fetch = FetchType.LAZY, mappedBy="test", cascade=CascadeType.ALL)
@@ -155,12 +155,21 @@ public class Test implements Serializable{
 	public void setNbTesteurAttendu(int nbTesteurAttendu) {
 		this.nbTesteurAttendu = nbTesteurAttendu;
 	}
-	public List<Candidature> getlTesteurs() {
-		return lTesteurs;
+
+	/**
+	 * @return the lCandidatures
+	 */
+	public List<Candidature> getlCandidatures() {
+		return lCandidatures;
 	}
-	public void setlTesteurs(List<Candidature> lTesteurs) {
-		this.lTesteurs = lTesteurs;
+
+	/**
+	 * @param lCandidatures the lCandidatures to set
+	 */
+	public void setlCandidatures(List<Candidature> lCandidatures) {
+		this.lCandidatures = lCandidatures;
 	}
+
 	public boolean isStatut() {
 		return statut;
 	}
