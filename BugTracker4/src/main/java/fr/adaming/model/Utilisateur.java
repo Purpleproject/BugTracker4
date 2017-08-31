@@ -30,28 +30,31 @@ public class Utilisateur {
 	protected String mail;
 	protected String mdp;
 	protected Date date;
+	protected String role;
 
 	public Utilisateur() {
 		super();
 	}
 
 	
-	public Utilisateur(String nomUtilisateur, String mail, String mdp, Date date) {
+	public Utilisateur(String nomUtilisateur, String mail, String mdp, Date date, String role) {
 		super();
 		this.nomUtilisateur = nomUtilisateur;
 		this.mail = mail;
 		this.mdp = mdp;
 		this.date = date;
+		this.role = role;
 	}
 
 
-	public Utilisateur(int id, String nomUtilisateur, String mail, String mdp, Date date) {
+	public Utilisateur(int id, String nomUtilisateur, String mail, String mdp, Date date, String role) {
 		super();
 		this.id = id;
 		this.nomUtilisateur = nomUtilisateur;
 		this.mail = mail;
 		this.mdp = mdp;
 		this.date = date;
+		this.role = role;
 	}
 
 
@@ -99,12 +102,22 @@ public class Utilisateur {
 	}
 
 
+	public String getRole() {
+		return role;
+	}
+
+
+	public void setRole(String role) {
+		this.role = role;
+	}
+
+
 	@Override
 	public String toString() {
 		return "Utilisateur [id=" + id + ", "
 				+ (nomUtilisateur != null ? "nomUtilisateur=" + nomUtilisateur + ", " : "")
 				+ (mail != null ? "mail=" + mail + ", " : "") + (mdp != null ? "mdp=" + mdp + ", " : "")
-				+ (date != null ? "date=" + date : "") + "]";
+				+ (date != null ? "date=" + date : "") + (role != null ? "role=" + role : "") + "]";
 	}
 
 
