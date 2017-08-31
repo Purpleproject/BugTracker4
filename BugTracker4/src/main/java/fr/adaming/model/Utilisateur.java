@@ -40,24 +40,22 @@ public class Utilisateur {
 	}
 
 	
-	public Utilisateur(String nomUtilisateur, String mail, String mdp, Date date, String role) {
+	public Utilisateur(String nomUtilisateur, String mail, String mdp, Date date) {
 		super();
 		this.nomUtilisateur = nomUtilisateur;
 		this.mail = mail;
 		this.mdp = mdp;
 		this.date = date;
-		this.role = role;
 	}
 
 
-	public Utilisateur(int id, String nomUtilisateur, String mail, String mdp, Date date, String role) {
+	public Utilisateur(int id, String nomUtilisateur, String mail, String mdp, Date date) {
 		super();
 		this.id = id;
 		this.nomUtilisateur = nomUtilisateur;
 		this.mail = mail;
 		this.mdp = mdp;
 		this.date = date;
-		this.role = role;
 	}
 
 
@@ -120,7 +118,7 @@ public class Utilisateur {
 		return "Utilisateur [id=" + id + ", "
 				+ (nomUtilisateur != null ? "nomUtilisateur=" + nomUtilisateur + ", " : "")
 				+ (mail != null ? "mail=" + mail + ", " : "") + (mdp != null ? "mdp=" + mdp + ", " : "")
-				+ (date != null ? "date=" + date : "") + (role != null ? "role=" + role : "") + "]";
+				+ (date != null ? "date=" + date : "")  + "]";
 	}
 
 

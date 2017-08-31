@@ -14,13 +14,13 @@ public class Editeur extends Utilisateur {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Editeur(int id, String nomUtilisateur, String mail, String mpd, Date date, String role) {
-		super(id, nomUtilisateur, mail, mpd, date, role);
+	public Editeur(int id, String nomUtilisateur, String mail, String mpd, Date date) {
+		super(id, nomUtilisateur, mail, mpd, date);
 		// TODO Auto-generated constructor stub
 	}
 
-	public Editeur(String nomUtilisateur, String mail, String mpd, Date date, String role) {
-		super(nomUtilisateur, mail, mpd, date, role);
+	public Editeur(String nomUtilisateur, String mail, String mpd, Date date) {
+		super(nomUtilisateur, mail, mpd, date);
 		// TODO Auto-generated constructor stub
 	}
 
