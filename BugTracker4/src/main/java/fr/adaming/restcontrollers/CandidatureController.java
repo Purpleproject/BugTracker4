@@ -44,7 +44,6 @@ public class CandidatureController {
 		candService.creerAssos(cand,testId,testeurId);
 		System.out.println("ok");
 	}
-
 	
 	@RequestMapping(value = "/supprimer", method = RequestMethod.DELETE)
 	public void supprimerCandidature(@RequestParam("pId") int id) {

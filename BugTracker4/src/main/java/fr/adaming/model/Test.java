@@ -14,10 +14,12 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 
 @Entity
 @Table(name="tests")
-
+@JsonIgnoreProperties("lCandidatures")
 public class Test implements Serializable{
 	//Attributs
 	@Id
