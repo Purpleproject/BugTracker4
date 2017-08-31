@@ -44,19 +44,26 @@ public class TesteurDaoImpl implements IGeneriqueDao<Testeur> {
 	@Override
 	public Testeur rechercheParId(int id) {
 		Session s = sf.getCurrentSession();
+		System.out.println("ok1");
+		String req = "FROM Testeur WHERE id = 1";
 
-		return (Testeur) s.get(Testeur.class, id);
+		Query query = (Query) s.createQuery(req);
+		System.out.println("ok2");
+
+		System.out.println("ok3");
+
+		return (Testeur) query.uniqueResult();
 	}
 
 	@Override
 	public List<Testeur> rechercheTout() {
-		 Session s = sf.getCurrentSession();
-		
-		 String req = "FROM Testeur";
-		
-		 Query query = (Query) s.createQuery(req);
-	
-		 return query.list();
-		 }
-	
+		Session s = sf.getCurrentSession();
+
+		String req = "FROM Testeur";
+
+		Query query = (Query) s.createQuery(req);
+
+		return query.list();
+	}
+
 }

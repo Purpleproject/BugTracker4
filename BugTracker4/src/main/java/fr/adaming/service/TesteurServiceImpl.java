@@ -40,6 +40,7 @@ public class TesteurServiceImpl implements ITesteurService {
 
 	@Override
 	public Testeur rechercheParId(int id) {
+		System.out.println("service");
 			return tDao.rechercheParId(id);
 	}
 

@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import fr.adaming.model.Editeur;
@@ -62,6 +62,16 @@ public class UtilisateurController {
 	@RequestMapping(value = "/rechercherTout", method = RequestMethod.GET, produces = "application/json")
 	public List<Utilisateur> rechercherTout() {
 		return utilisateurSer.rechercheTout();
+	}
+	
+	
+	@CrossOrigin
+	@RequestMapping(value = "/testeurId", method = RequestMethod.GET, produces = "application/json")
+	public Testeur rechercherTesteurId() {
+		Testeur test=testeurSer.rechercheParId(1);
+		test.toString();
+		System.out.println("ok");
+		return new Testeur(1, "aaa", "aaa", "aaa", null, "testeur", "aaa", "aaa");
 	}
 
 	@CrossOrigin

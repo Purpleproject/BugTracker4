@@ -54,7 +54,7 @@ public class UtilisateurServiceImpl implements IUtilisateurService {
 
 	@Override
 	public Utilisateur Login(String mail, String mdp) {
-		return utiDao.Login(mail, mdp);
+		return utiDao.login(mail, mdp);
 	}
 
 //	public Utilisateur rechercheParMail(String mail){
