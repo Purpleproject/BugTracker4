@@ -52,6 +52,11 @@ public class UtilisateurServiceImpl implements IUtilisateurService {
 		return uDao.rechercheTout();
 	}
 
+	@Override
+	public Utilisateur Login(String mail, String mdp) {
+		return utiDao.Login(mail, mdp);
+	}
+
 //	public Utilisateur rechercheParMail(String mail){
 //		return utiDao.rechercherParMail(mail);
 //	}

@@ -6,4 +6,5 @@ public interface IUtilisateurDao {
 
 	//public Utilisateur rechercherParMail(String mail);
 	
+	public Utilisateur Login(String mail, String mdp);  
 }
