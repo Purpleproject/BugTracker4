@@ -22,7 +22,10 @@ public class LoginController {
 
 
 	@CrossOrigin
-	@RequestMapping(value="/login", method=RequestMethod.POST)
+	@RequestMapping(value="/login", 
+		method=RequestMethod.POST,
+		produces="application/json"
+			)
 	public Utilisateur login( @RequestParam String mail, @RequestParam String mdp){
 			return utilisateurServ.Login(mail, mdp);
 	}
