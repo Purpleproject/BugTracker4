@@ -44,20 +44,21 @@ public class UtilisateurController {
 		this.editeurSer = ediSer;
 	}
 
-
+	@CrossOrigin
 	@RequestMapping(value = "/creerTesteur", method = RequestMethod.POST,consumes="application/json",produces="application/json")
 	public void creer(@RequestBody Testeur user) {
 		testeurSer.creer(user);
 		System.out.println("ok");
 	}
 
-
+	@CrossOrigin
 	@RequestMapping(value = "/creerEditeur", method = RequestMethod.POST,consumes="application/json",produces="application/json")
 	public void creer(@RequestBody Editeur user) {
 		editeurSer.creer(user);
 		System.out.println("ok");
 	}
-
+	
+	@CrossOrigin
 	@RequestMapping(value = "/rechercherTout", method = RequestMethod.GET, produces = "application/json")
 	public List<Utilisateur> rechercherTout() {
 		return utilisateurSer.rechercheTout();

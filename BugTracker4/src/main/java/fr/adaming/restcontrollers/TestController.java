@@ -3,6 +3,7 @@ package fr.adaming.restcontrollers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -27,12 +28,14 @@ public class TestController {
 		this.testService = testService;
 	}
 
+	@CrossOrigin
 	@RequestMapping(value = "/creerTest", method = RequestMethod.POST,consumes="application/json",produces="application/json")
 	public void creer(@RequestBody Test test) {
 		testService.creer(test);
 		System.out.println("ok");
 	}
 
+	@CrossOrigin
 	@RequestMapping(value = "/rechercherTout", method = RequestMethod.GET, produces = "application/json")
 	public List<Test> rechercherTout() {
 		return testService.rechercheTout();

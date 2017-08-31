@@ -17,6 +17,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="tests")
+
 public class Test implements Serializable{
 	//Attributs
 	@Id

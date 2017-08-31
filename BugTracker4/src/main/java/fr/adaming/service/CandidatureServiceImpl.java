@@ -8,43 +8,60 @@ import org.springframework.transaction.annotation.Transactional;
 
 import fr.adaming.dao.IGeneriqueDao;
 import fr.adaming.model.Candidature;
+import fr.adaming.model.Test;
+import fr.adaming.model.Testeur;
 
 @Service
 @Transactional
 public class CandidatureServiceImpl implements ICandidatureService{
 
 	@Autowired
-	private IGeneriqueDao<Candidature> eDao;
-	
+	private IGeneriqueDao<Candidature> cDao;
+	private IGeneriqueDao<Test> testDao;
+	private IGeneriqueDao<Testeur> testeurDao;
 	
 	@Override
-	public void creer(Candidature c) {
-		eDao.creer(c);
+	public void creerAssos(Candidature c,int testId, int testeurId) {
+		Test test = testDao.rechercheParId(testId);
+        Testeur testeur = testeurDao.rechercheParId(testeurId);
+       
+        if ((test)!=null && testeur !=null ){
+        	c.setTest(test);
+            c.setTesteur(testeur);
+    		cDao.creer(c);
+		}
 	}
 	
 
 	@Override
 	public void supprimer(int id) {
-		eDao.supprimer(id);
+		cDao.supprimer(id);
 		
 	}
 
 	@Override
 	public void modifier(Candidature c) {
-		// TODO Auto-generated method stub
+		cDao.modifier(c);
 		
 	}
 
 	@Override
 	public Candidature rechercheParId(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return cDao.rechercheParId(id);
 	}
 
 	@Override
 	public List<Candidature> rechercheTout() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return cDao.rechercheTout();
+	}
+
+
+	@Override
+	public void creer(Candidature c) {
+		cDao.creer(c);
+		
 	}
 
 	
