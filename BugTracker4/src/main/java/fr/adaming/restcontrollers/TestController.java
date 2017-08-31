@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import fr.adaming.model.Test;
@@ -41,5 +42,13 @@ public class TestController {
 		return testService.rechercheTout();
 	}
 
+	@CrossOrigin
+	@RequestMapping(value="/rechercherUn", method = RequestMethod.GET, produces = "application/json")
+	public Test rechercherUn(@RequestParam("pIdTest") int idTest){
+		System.out.println("ok");
+		return testService.rechercheParId(idTest);
+	}
+
 
 }
+

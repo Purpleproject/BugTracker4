@@ -39,7 +39,7 @@ public class FicheBugController {
 	
 	@CrossOrigin
 	@RequestMapping(value = "/creerFicheBugEtAssos", method = RequestMethod.POST, consumes="application/json",produces="application/json")
-	public void creerAssos(@RequestBody FicheBug ficheBug, @RequestParam int testId, @RequestParam int testeurId){
+	public void creerAssos(@RequestBody FicheBug ficheBug, @RequestParam int testeurId, @RequestParam int testId){
 		ficheBugService.creerAssos(ficheBug, testId, testeurId);
 	}
 	

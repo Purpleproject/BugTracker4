@@ -29,8 +29,8 @@ public class TestDaoImpl implements IGeneriqueDao<Test> {
 	@Override
 	public void supprimer(int id) {
 		Session s = sf.getCurrentSession();
-		Test compentence = (Test) s.get(Test.class, id);
-		s.delete(compentence);
+		Test test = (Test) s.get(Test.class, id);
+		s.delete(test);
 	}
 
 	@Override

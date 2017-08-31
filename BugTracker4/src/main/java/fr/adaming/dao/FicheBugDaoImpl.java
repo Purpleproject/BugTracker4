@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import fr.adaming.model.FicheBug;
+import fr.adaming.model.Test;
 
 @Repository
 public class FicheBugDaoImpl implements IGeneriqueDao<FicheBug> {
@@ -27,20 +28,21 @@ public class FicheBugDaoImpl implements IGeneriqueDao<FicheBug> {
 
 	@Override
 	public void supprimer(int id) {
-		// TODO Auto-generated method stub
-		
+		Session s = sf.getCurrentSession();
+		FicheBug ficheBug = (FicheBug) s.get(FicheBug.class, id);
+		s.delete(ficheBug);
 	}
 
 	@Override
-	public void modifier(FicheBug t) {
-		// TODO Auto-generated method stub
-		
+	public void modifier(FicheBug ficheBug) {
+		Session s = sf.getCurrentSession();
+		s.saveOrUpdate(ficheBug);
 	}
 
 	@Override
 	public FicheBug rechercheParId(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		Session s = sf.getCurrentSession();
+		return (FicheBug) s.get(FicheBug.class, id);
 	}
 
 	@SuppressWarnings("unchecked")
