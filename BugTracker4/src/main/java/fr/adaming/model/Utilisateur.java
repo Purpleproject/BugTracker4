@@ -13,6 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name = "utilisateurs") 
@@ -30,6 +31,8 @@ public class Utilisateur {
 	protected String mail;
 	protected String mdp;
 	protected Date date;
+	
+	@Transient
 	protected String role;
 
 	public Utilisateur() {
