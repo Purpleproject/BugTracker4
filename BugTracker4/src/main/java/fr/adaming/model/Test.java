@@ -19,7 +19,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name="tests")
-@JsonIgnoreProperties("lCandidatures")
+@JsonIgnoreProperties({"lCandidatures","lBugs"})
 public class Test implements Serializable{
 	//Attributs
 	@Id
