@@ -18,5 +18,5 @@ public interface IUtilisateurService {
 
 	public Utilisateur Login(String mail, String mdp);
 	//public Utilisateur rechercheParMail(String mail);
-	
+	  
 }

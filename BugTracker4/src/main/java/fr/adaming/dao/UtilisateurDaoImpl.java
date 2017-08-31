@@ -96,7 +96,7 @@ public class UtilisateurDaoImpl implements IGeneriqueDao<Utilisateur>, IUtilisat
 		} else if (lEditeur.size() > 0) {
 			Editeur editeur = lEditeur.get(0);
 			return editeur;
-		}else{
+		}else{  
 			return null;
 		}
 
