@@ -75,8 +75,8 @@ public class UtilisateurDaoImpl implements IGeneriqueDao<Utilisateur>, IUtilisat
 	public Utilisateur login(String mail, String mdp) {
 		Session s = sf.getCurrentSession();
 
-		String reqTesteur = "SELECT * FROM Testeur WHERE mail=? AND mdp=? AND role LIKE testeur";
-		String reqEditeur = "SELECT * FROM Editeur WHERE mail=? AND mdp=? AND role LIKE editeur";
+		String reqTesteur = "SELECT * FROM Testeur WHERE mail=? AND mdp=?";
+		String reqEditeur = "SELECT * FROM Editeur WHERE mail=? AND mdp=?";
 		
 		Query queryTesteur = s.createQuery(reqTesteur);
 		Query queryEditeur = s.createQuery(reqEditeur);
@@ -90,11 +90,14 @@ public class UtilisateurDaoImpl implements IGeneriqueDao<Utilisateur>, IUtilisat
 		List<Testeur> lTesteur = queryTesteur.list();
 		List<Editeur> lEditeur = queryEditeur.list();
 
+		
 		if (lTesteur.size() > 0) {
 			Testeur testeur = lTesteur.get(0);
+			testeur.setRole("testeur");
 			return testeur;
 		} else if (lEditeur.size() > 0) {
 			Editeur editeur = lEditeur.get(0);
+			editeur.setRole("editeur");
 			return editeur;
 		}else{  
 			return null;
