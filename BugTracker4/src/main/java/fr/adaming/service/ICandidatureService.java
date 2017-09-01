@@ -7,8 +7,6 @@ import fr.adaming.model.Candidature;
 public interface ICandidatureService {
 	
 	public void creer(Candidature c);
-	
-	public void creerAssos(Candidature c,int testId, int testeurId);
 
 	public void supprimer(int id);
 
@@ -17,5 +15,7 @@ public interface ICandidatureService {
 	public Candidature rechercheParId(int id);
 
 	public List<Candidature> rechercheTout();
+	
+	public List<Candidature> rechercheCandidatureTesteur(int id);  
 
 }

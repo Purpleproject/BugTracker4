@@ -6,10 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import fr.adaming.dao.ICandidatureDao;
 import fr.adaming.dao.IGeneriqueDao;
 import fr.adaming.model.Candidature;
-import fr.adaming.model.Test;
-import fr.adaming.model.Testeur;
+
 
 @Service
 @Transactional
@@ -17,21 +17,19 @@ public class CandidatureServiceImpl implements ICandidatureService{
 
 	@Autowired
 	private IGeneriqueDao<Candidature> cDao;
-	private IGeneriqueDao<Test> testDao;
-	private IGeneriqueDao<Testeur> testeurDao;
+
+	@Autowired
+	private ICandidatureDao caDao;
 	
-	@Override
-	public void creerAssos(Candidature c,int testId, int testeurId) {
-		Test test = testDao.rechercheParId(testId);
-        Testeur testeur = testeurDao.rechercheParId(testeurId);
-       
-        if ((test)!=null && testeur !=null ){
-        	c.setTest(test);
-            c.setTesteur(testeur);
-    		cDao.creer(c);
-		}
+
+
+	public void setcDao(IGeneriqueDao<Candidature> cDao) {
+		this.cDao = cDao;
 	}
-	
+
+	public void setCaDao(ICandidatureDao caDao) {
+		this.caDao = caDao;
+	}
 
 	@Override
 	public void supprimer(int id) {
@@ -62,6 +60,13 @@ public class CandidatureServiceImpl implements ICandidatureService{
 	public void creer(Candidature c) {
 		cDao.creer(c);
 		
+	}
+
+
+	@Override
+	public List<Candidature> rechercheCandidatureTesteur(int id) {
+		
+		return caDao.rechercheCandidatureTesteur(id);
 	}
 
 	

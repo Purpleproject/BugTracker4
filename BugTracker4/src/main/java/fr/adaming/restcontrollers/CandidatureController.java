@@ -38,16 +38,15 @@ public class CandidatureController {
 		System.out.println("ok");
 	}
 
-	@CrossOrigin
-	@RequestMapping(value = "/creerCandAssos", method = RequestMethod.POST, consumes = "application/json")
-	public void creerAssos(@RequestBody Candidature cand,@RequestParam int testId, @RequestParam int testeurId) {
-		candService.creerAssos(cand,testId,testeurId);
-		System.out.println("ok");
-	}
-	
 	@RequestMapping(value = "/supprimer", method = RequestMethod.DELETE)
 	public void supprimerCandidature(@RequestParam("pId") int id) {
 		candService.supprimer(id);
+	}
+	
+	@CrossOrigin
+	@RequestMapping(value = "/rechercherCandTesteur", method = RequestMethod.GET, produces = "application/json")
+	public List<Candidature> rechercherCandTesteur(@RequestParam("pId") int id) {
+		return candService.rechercheCandidatureTesteur(id);
 	}
 
 }
