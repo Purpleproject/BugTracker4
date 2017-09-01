@@ -2,7 +2,6 @@ package fr.adaming.restcontrollers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -17,19 +16,17 @@ public class LoginController {
 
 	@Autowired
 	IUtilisateurService utilisateurServ;
-	
-	
 	public void setUtiisateurServ(IUtilisateurService utilisateurServ) {
 		this.utilisateurServ = utilisateurServ;
 	}
 
 
 	@CrossOrigin
-	@RequestMapping(value="/login", method=RequestMethod.POST)
-	public Utilisateur login( @RequestBody Utilisateur utilisateur){
-		String mail = utilisateur.getMail();
-		String mdp = utilisateur.getMdp();
-		
+	@RequestMapping(value="/login", 
+		method=RequestMethod.POST,
+		produces="application/json"
+			)
+	public Utilisateur login( @RequestParam String mail, @RequestParam String mdp){
 			return utilisateurServ.login(mail, mdp);
 	}
 
