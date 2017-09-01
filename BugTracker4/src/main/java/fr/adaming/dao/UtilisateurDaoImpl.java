@@ -72,7 +72,7 @@ public class UtilisateurDaoImpl implements IGeneriqueDao<Utilisateur>, IUtilisat
 	// }
 
 	@Override
-	public Utilisateur Login(String mail, String mdp) {
+	public Utilisateur login(String mail, String mdp) {
 		Session s = sf.getCurrentSession();
 
 		String reqTesteur = "SELECT * FROM Testeur WHERE mail=? AND mdp=?";
@@ -90,11 +90,14 @@ public class UtilisateurDaoImpl implements IGeneriqueDao<Utilisateur>, IUtilisat
 		List<Testeur> lTesteur = queryTesteur.list();
 		List<Editeur> lEditeur = queryEditeur.list();
 
+		
 		if (lTesteur.size() > 0) {
 			Testeur testeur = lTesteur.get(0);
+			testeur.setRole("testeur");
 			return testeur;
 		} else if (lEditeur.size() > 0) {
 			Editeur editeur = lEditeur.get(0);
+			editeur.setRole("editeur");
 			return editeur;
 		}else{  
 			return null;

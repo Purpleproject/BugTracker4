@@ -13,6 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name = "utilisateurs") 
@@ -30,6 +31,9 @@ public class Utilisateur {
 	protected String mail;
 	protected String mdp;
 	protected Date date;
+	
+	@Transient
+	protected String role;
 
 	public Utilisateur() {
 		super();
@@ -99,12 +103,22 @@ public class Utilisateur {
 	}
 
 
+	public String getRole() {
+		return role;
+	}
+
+
+	public void setRole(String role) {
+		this.role = role;
+	}
+
+
 	@Override
 	public String toString() {
 		return "Utilisateur [id=" + id + ", "
 				+ (nomUtilisateur != null ? "nomUtilisateur=" + nomUtilisateur + ", " : "")
 				+ (mail != null ? "mail=" + mail + ", " : "") + (mdp != null ? "mdp=" + mdp + ", " : "")
-				+ (date != null ? "date=" + date : "") + "]";
+				+ (date != null ? "date=" + date : "")  + "]";
 	}
 
 
