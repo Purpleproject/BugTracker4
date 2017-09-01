@@ -26,18 +26,20 @@ public class Testeur extends Utilisateur {
 		super();
 	}
 
-	public Testeur(int id, String nomUtilisateur, String mail, String mpd, Date date, String nom, String prenom) {
-		super(id, nomUtilisateur, mail, mpd, date);
+	
+	public Testeur(int id, String nomUtilisateur, String mail, String mdp, Date date, String nom, String prenom) {
+		super(id, nomUtilisateur, mail, mdp, date, "testeur");
 		this.nom = nom;
 		this.prenom = prenom;
 	}
 
-	public Testeur(String nomUtilisateur, String mail, String mpd, Date date, String nom, String prenom) {
-		super(nomUtilisateur, mail, mpd, date);
+
+	public Testeur(String nomUtilisateur, String mail, String mdp, Date date, String nom, String prenom) {
+		super(nomUtilisateur, mail, mdp, date, "testeur");
 		this.nom = nom;
 		this.prenom = prenom;
 	}
-
+	
 	public String getNom() {
 		return nom;
 	}
