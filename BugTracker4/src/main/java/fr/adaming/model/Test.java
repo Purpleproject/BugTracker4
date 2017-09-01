@@ -11,6 +11,8 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -44,48 +46,18 @@ public class Test implements Serializable{
 	@OneToMany(mappedBy="test", cascade=CascadeType.ALL)
 	private List<FicheBug> lBugs;
 	
-		
+	@ManyToOne
+	@JoinColumn(name="id_editeur", referencedColumnName="id_utilisateur")
+	private Editeur editeur;
 	
 	/*******************************************
 	*				Constructeurs
 	********************************************/	
 	
-	/**Constructeur sans id
-	* @param nomTest
-	 * @param description
-	 * @param datePublication
-	 * @param dateFin
-	 * @param remuneration
-	 * @param nbTesteurAttendu
-	 * @param statut
-	 */
+
 	
-	public Test(String nomTest, String description, Date datePublication, Date dateFin, String remuneration,
-			int nbTesteurAttendu, boolean statut) {
-		super();
-		this.nomTest = nomTest;
-		this.description = description;
-		this.datePublication = datePublication;
-		this.dateFin = dateFin;
-		this.remuneration = remuneration;
-		this.nbTesteurAttendu = nbTesteurAttendu;
-		this.statut = statut;
-		
-	}
-	
-	/** 
-	 * Constructeur avec id
-	 * @param id
-	 * @param nomTest
-	 * @param description
-	 * @param datePublication
-	 * @param dateFin
-	 * @param remuneration
-	 * @param nbTesteurAttendu
-	 * @param statut
-	 */
 	public Test(int id, String nomTest, String description, Date datePublication, Date dateFin, String remuneration,
-			int nbTesteurAttendu, boolean statut) {
+			int nbTesteurAttendu, boolean statut, Editeur editeur) {
 		super();
 		this.id = id;
 		this.nomTest = nomTest;
@@ -95,9 +67,22 @@ public class Test implements Serializable{
 		this.remuneration = remuneration;
 		this.nbTesteurAttendu = nbTesteurAttendu;
 		this.statut = statut;
-	
+		this.editeur = editeur;
 	}
-	
+
+	public Test(String nomTest, String description, Date datePublication, Date dateFin, String remuneration,
+			int nbTesteurAttendu, boolean statut, Editeur editeur) {
+		super();
+		this.nomTest = nomTest;
+		this.description = description;
+		this.datePublication = datePublication;
+		this.dateFin = dateFin;
+		this.remuneration = remuneration;
+		this.nbTesteurAttendu = nbTesteurAttendu;
+		this.statut = statut;
+		this.editeur = editeur;
+	}
+
 	/**
 	 * Constructeur vide
 	 */
@@ -153,6 +138,16 @@ public class Test implements Serializable{
 	public void setNbTesteurAttendu(int nbTesteurAttendu) {
 		this.nbTesteurAttendu = nbTesteurAttendu;
 	}
+	
+	
+
+	public Editeur getEditeur() {
+		return editeur;
+	}
+
+	public void setEditeur(Editeur editeur) {
+		this.editeur = editeur;
+	}
 
 	/**
 	 * @return the lCandidatures
@@ -180,17 +175,24 @@ public class Test implements Serializable{
 	public void setlBugs(List<FicheBug> lBugs) {
 		this.lBugs = lBugs;
 	}
-
+	
 	/*****************************
 	 * 			toString
 	 * 
 	 *****************************/
 	@Override
 	public String toString() {
-		return "Test [id=" + id + ", nomTest=" + nomTest + ", description=" + description + ", datePublication="
-				+ datePublication + ", dateFin=" + dateFin + ", remuneration=" + remuneration + ", nbTesteurAttendu="
-				+ nbTesteurAttendu +  ", statut=" + statut + "]";
+		return "Test [id=" + id + ", " + (nomTest != null ? "nomTest=" + nomTest + ", " : "")
+				+ (description != null ? "description=" + description + ", " : "")
+				+ (datePublication != null ? "datePublication=" + datePublication + ", " : "")
+				+ (dateFin != null ? "dateFin=" + dateFin + ", " : "")
+				+ (remuneration != null ? "remuneration=" + remuneration + ", " : "") + "nbTesteurAttendu="
+				+ nbTesteurAttendu + ", statut=" + statut + ", "
+				+ (lCandidatures != null ? "lCandidatures=" + lCandidatures + ", " : "")
+				+ (lBugs != null ? "lBugs=" + lBugs + ", " : "") + (editeur != null ? "editeur=" + editeur : "") + "]";
 	}
+
+	
 	
 	
 	
