@@ -12,7 +12,7 @@ import fr.adaming.model.Candidature;
 
 
 @Repository
-public class CandidatureDaoImpl implements IGeneriqueDao<Candidature> {
+public class CandidatureDaoImpl implements IGeneriqueDao<Candidature>, ICandidatureDao {
 
 	@Autowired
 	private SessionFactory sf;
@@ -58,6 +58,19 @@ public class CandidatureDaoImpl implements IGeneriqueDao<Candidature> {
 
 		Query query = (Query) s.createQuery(req);
 
+		return query.list();
+	}
+
+	@Override
+	public List<Candidature> rechercheCandidatureTesteur(int id) {
+		Session s = sf.getCurrentSession();
+		
+		String req = "FROM Candidature WHERE testeur_id=? AND statut = 1";
+		
+		Query query = s.createQuery(req);
+		
+		query.setParameter(0, id);
+		
 		return query.list();
 	}
 

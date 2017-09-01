@@ -1,4 +1,4 @@
-package fr.adaming.model;
+package fr.adaming.model; 
 
 import java.io.Serializable;
 import java.util.Date;

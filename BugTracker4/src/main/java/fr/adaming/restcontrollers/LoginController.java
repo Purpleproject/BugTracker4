@@ -1,4 +1,4 @@
-package fr.adaming.restcontrollers;
+package fr.adaming.restcontrollers; 
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
