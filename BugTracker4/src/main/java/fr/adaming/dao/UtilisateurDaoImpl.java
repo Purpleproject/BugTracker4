@@ -100,7 +100,7 @@ public class UtilisateurDaoImpl implements IGeneriqueDao<Utilisateur>, IUtilisat
 			editeur.setRole("editeur");
 			return editeur;
 		}else{  
-			return null;
+			return new Utilisateur();
 		}
 
 	}
