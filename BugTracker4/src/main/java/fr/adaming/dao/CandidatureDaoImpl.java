@@ -69,7 +69,7 @@ public class CandidatureDaoImpl implements IGeneriqueDao<Candidature>, ICandidat
 		
 		Query query = s.createQuery(req);
 		
-		query.setParameter(0, 1);
+		query.setParameter(0, id);
 		
 		return query.list();
 	}
