@@ -67,11 +67,16 @@ public class UtilisateurController {
 	
 	@CrossOrigin
 	@RequestMapping(value = "/testeurId", method = RequestMethod.GET, produces = "application/json")
-	public Testeur rechercherTesteurId() {
-		Testeur test=testeurSer.rechercheParId(1);
-		test.toString();
-		System.out.println("ok");
-		return new Testeur(1, "aaa", "aaa", "aaa", null, "testeur", "aaa", "aaa");
+	public Testeur rechercherTesteurId(@RequestParam("pId")int id) {
+		return testeurSer.rechercheParId(id);
+		
+		 
+	}
+	
+	@CrossOrigin
+	@RequestMapping(value = "/editeurId", method = RequestMethod.GET, produces = "application/json")
+	public Editeur rechercherEditeurId(@RequestParam("pId")int id) {
+		return editeurSer.rechercheParId(id);
 	}
 
 	@CrossOrigin

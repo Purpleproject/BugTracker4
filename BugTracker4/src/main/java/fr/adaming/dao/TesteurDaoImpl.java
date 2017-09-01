@@ -1,6 +1,6 @@
 package fr.adaming.dao;
 
-import java.sql.ResultSet;
+
 import java.util.List;
 
 import org.hibernate.Query;
@@ -44,15 +44,9 @@ public class TesteurDaoImpl implements IGeneriqueDao<Testeur> {
 	@Override
 	public Testeur rechercheParId(int id) {
 		Session s = sf.getCurrentSession();
-		System.out.println("ok1");
-		String req = "FROM Testeur WHERE id = 1";
+		
 
-		Query query = (Query) s.createQuery(req);
-		System.out.println("ok2");
-
-		System.out.println("ok3");
-
-		return (Testeur) query.uniqueResult();
+		return (Testeur) s.get(Testeur.class, id);
 	}
 
 	@Override
