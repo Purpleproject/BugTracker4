@@ -43,10 +43,9 @@ public class TestController {
 	}
 
 	@CrossOrigin
-	@RequestMapping(value="/rechercherUn", method = RequestMethod.GET, produces = "application/json")
-	public Test rechercherUn(@RequestParam("pIdTest") int idTest){
-		System.out.println("ok");
-		return testService.rechercheParId(idTest);
+	@RequestMapping(value = "/testId", method = RequestMethod.GET, produces = "application/json")
+	public Test rechercherTestId(@RequestParam("pId")int id) {
+		return testService.rechercheParId(id); 
 	}
 
 

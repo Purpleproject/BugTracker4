@@ -40,6 +40,28 @@ public class Utilisateur {
 	}
 
 	
+	public Utilisateur(int id, String nomUtilisateur, String mail, String mdp, Date date, String role) {
+		super();
+		this.id = id;
+		this.nomUtilisateur = nomUtilisateur;
+		this.mail = mail;
+		this.mdp = mdp;
+		this.date = date;
+		this.role = role;
+	}
+	
+
+
+	public Utilisateur(String nomUtilisateur, String mail, String mdp, Date date, String role) {
+		super();
+		this.nomUtilisateur = nomUtilisateur;
+		this.mail = mail;
+		this.mdp = mdp;
+		this.date = date;
+		this.role = role;
+	}
+
+
 	public Utilisateur(String nomUtilisateur, String mail, String mdp, Date date) {
 		super();
 		this.nomUtilisateur = nomUtilisateur;

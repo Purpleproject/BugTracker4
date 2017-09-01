@@ -75,8 +75,8 @@ public class UtilisateurDaoImpl implements IGeneriqueDao<Utilisateur>, IUtilisat
 	public Utilisateur login(String mail, String mdp) {
 		Session s = sf.getCurrentSession();
 
-		String reqTesteur = "SELECT * FROM Testeur WHERE mail=? AND mdp=?";
-		String reqEditeur = "SELECT * FROM Editeur WHERE mail=? AND mdp=?";
+		String reqTesteur = "FROM Testeur WHERE mail=? AND mdp=?";
+		String reqEditeur = "FROM Editeur WHERE mail=? AND mdp=?";
 		
 		Query queryTesteur = s.createQuery(reqTesteur);
 		Query queryEditeur = s.createQuery(reqEditeur);

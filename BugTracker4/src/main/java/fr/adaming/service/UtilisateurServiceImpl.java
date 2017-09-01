@@ -17,6 +17,7 @@ public class UtilisateurServiceImpl implements IUtilisateurService {
 	@Autowired
 	private IGeneriqueDao<Utilisateur> uDao;
 
+	@Autowired
 	private IUtilisateurDao utiDao;
 
 	public void setuDao(IGeneriqueDao<Utilisateur> uDao) {
