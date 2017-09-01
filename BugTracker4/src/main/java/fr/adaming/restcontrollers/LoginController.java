@@ -2,6 +2,7 @@ package fr.adaming.restcontrollers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -26,7 +27,9 @@ public class LoginController {
 		method=RequestMethod.POST,
 		produces="application/json"
 			)
-	public Utilisateur login( @RequestParam String mail, @RequestParam String mdp){
+	public Utilisateur login( @RequestBody Utilisateur utilisateur){
+		String mail = utilisateur.getMail();
+		String mdp = utilisateur.getMdp();
 			return utilisateurServ.login(mail, mdp);
 	}
 
